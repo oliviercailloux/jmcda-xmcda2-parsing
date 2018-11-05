@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.1.0">
+	<!-- This is an invalid XMCDA document for testing purposes. -->
+	<projectReference>
+		<title>First title</title>
+		<title>Second title</title>
+	</projectReference>
+</xmcda:XMCDA>
+  

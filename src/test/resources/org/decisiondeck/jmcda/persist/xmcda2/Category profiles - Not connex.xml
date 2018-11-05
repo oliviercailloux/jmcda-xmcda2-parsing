@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.1.0">
+	<projectReference>
+		<title>Category profiles - Not connex</title>
+		<comment>Those categories profiles do not define a total order between the profiles:
+		it is impossible to know whether profile p1 is better or worst than profile p2.</comment>
+	</projectReference>
+	<categoriesProfiles>
+		<categoryProfile>
+			<alternativeID>p2</alternativeID>
+			<limits>
+				<lowerCategory>
+					<categoryID>Cat3</categoryID>
+				</lowerCategory>
+				<upperCategory>
+					<categoryID>Cat4</categoryID>
+				</upperCategory>
+			</limits>
+		</categoryProfile>
+		<categoryProfile>
+			<alternativeID>p1</alternativeID>
+			<limits>
+				<lowerCategory>
+					<categoryID>Cat1</categoryID>
+				</lowerCategory>
+				<upperCategory>
+					<categoryID>Cat2</categoryID>
+				</upperCategory>
+			</limits>
+		</categoryProfile>
+	</categoriesProfiles>
+</xmcda:XMCDA>
+  
