@@ -6,27 +6,27 @@
 		<artifactId>pom</artifactId>
 		<version>0.5.4-SNAPSHOT</version>
 	</parent>
-	<artifactId>jmcda-xmcda2-parsing</artifactId>
+	<artifactId>xmcda2-parsing</artifactId>
 	<name>Decision Deck XMCDA v2 Parsing and serializing</name>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jmcda-utils</artifactId>
+			<artifactId>utils</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jmcda-utils-xml</artifactId>
+			<artifactId>utils-xml</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jmcda-base</artifactId>
+			<artifactId>base</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jmcda-xmcda2</artifactId>
+			<artifactId>xmcda2</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -37,7 +37,7 @@
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jmcda-xmcda2-samples</artifactId>
+			<artifactId>xmcda2-samples</artifactId>
 			<version>${project.version}</version>
 			<scope>test</scope>
 		</dependency>
