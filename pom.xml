@@ -10,6 +10,16 @@
 	<artifactId>xmcda2-parsing</artifactId>
 	<version>0.5.4-SNAPSHOT</version>
 	<name>Decision Deck XMCDA v2 Parsing and serializing</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration combine.self="override"/>
+			</plugin>
+		</plugins>
+	</build>
+
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
