@@ -55,12 +55,10 @@ public class XMCDAWriteUtils {
 	/**
 	 * Returns a new XMCDA document containing only the given fragment.
 	 *
-	 * @param fragment
-	 *            not <code>null</code>, must conform to the relevant schema,
-	 *            must be allowed as a direct child of the XMCDA tag.
-	 * @param validate
-	 *            if <code>true</code>, this method will assert that the
-	 *            returned document is valid. This is recommanded.
+	 * @param fragment not <code>null</code>, must conform to the relevant schema,
+	 *                 must be allowed as a direct child of the XMCDA tag.
+	 * @param validate if <code>true</code>, this method will assert that the
+	 *                 returned document is valid. This is recommanded.
 	 * @return not <code>null</code>.
 	 */
 	static public XMCDADoc getDoc(XmlObject fragment, boolean validate) {
@@ -78,20 +76,17 @@ public class XMCDAWriteUtils {
 
 	/**
 	 * Writes an XMCDA document containing only the given fragment to the given
-	 * destination. If validate is <code>true</code>, the fragment must be valid
-	 * and the written document is guaranteed to be valid.
+	 * destination. If validate is <code>true</code>, the fragment must be valid and
+	 * the written document is guaranteed to be valid.
 	 *
-	 * @param fragment
-	 *            not <code>null</code>, must conform to the relevant schema,
-	 *            must be allowed as a direct child of the XMCDA tag.
-	 * @param destination
-	 *            not <code>null</code>.
-	 * @param validate
-	 *            if <code>true</code>, this method will assert that the written
-	 *            document is valid. This is recommanded.
-	 * @throws IOException
-	 *             if an exception happens while opening or closing the given
-	 *             writer, or while writing to the destination.
+	 * @param fragment    not <code>null</code>, must conform to the relevant
+	 *                    schema, must be allowed as a direct child of the XMCDA
+	 *                    tag.
+	 * @param destination not <code>null</code>.
+	 * @param validate    if <code>true</code>, this method will assert that the
+	 *                    written document is valid. This is recommanded.
+	 * @throws IOException if an exception happens while opening or closing the
+	 *                     given writer, or while writing to the destination.
 	 */
 	static public void write(XmlObject fragment, ByteSink destination, boolean validate) throws IOException {
 		final XMCDAWriteUtils writer = new XMCDAWriteUtils();
@@ -121,21 +116,20 @@ public class XMCDAWriteUtils {
 	 * Retrieves the information whether this object only accepts to write valid
 	 * documents. The default is <code>true</code>.
 	 *
-	 * @return <code>true</code> if this object validates documents before
-	 *         writing them.
+	 * @return <code>true</code> if this object validates documents before writing
+	 *         them.
 	 */
 	public boolean doesValidate() {
 		return m_helper.doesValidate();
 	}
 
 	/**
-	 * Returns a new XMCDA document containing only the given fragment. The
-	 * fragment must be valid, and the document is guaranteed to be valid,
-	 * except if this object is not set to validate xml.
+	 * Returns a new XMCDA document containing only the given fragment. The fragment
+	 * must be valid, and the document is guaranteed to be valid, except if this
+	 * object is not set to validate xml.
 	 *
-	 * @param fragment
-	 *            not <code>null</code>, must conform to the relevant schema,
-	 *            must be allowed as a direct child of the XMCDA tag.
+	 * @param fragment not <code>null</code>, must conform to the relevant schema,
+	 *                 must be allowed as a direct child of the XMCDA tag.
 	 * @return not <code>null</code>.
 	 * @see #setValidate(boolean)
 	 */
@@ -144,8 +138,8 @@ public class XMCDAWriteUtils {
 	}
 
 	/**
-	 * Retrieves a writable view of the options used to save XML streams.
-	 * Default options are to use pretty print and to use the UTF-8 encoding.
+	 * Retrieves a writable view of the options used to save XML streams. Default
+	 * options are to use pretty print and to use the UTF-8 encoding.
 	 *
 	 * @return not <code>null</code>.
 	 */
@@ -154,30 +148,26 @@ public class XMCDAWriteUtils {
 	}
 
 	/**
-	 * Enables or disables the check for validation before writing any document.
-	 * The default is <code>true</code>, thus this object validates each
-	 * document before returning or writing them. It is not recommanded to
-	 * disable validation but it can be useful for debug.
+	 * Enables or disables the check for validation before writing any document. The
+	 * default is <code>true</code>, thus this object validates each document before
+	 * returning or writing them. It is not recommanded to disable validation but it
+	 * can be useful for debug.
 	 *
-	 * @param validate
-	 *            <code>false</code> to allow invalid documents.
+	 * @param validate <code>false</code> to allow invalid documents.
 	 */
 	public void setValidate(boolean validate) {
 		m_helper.setValidate(validate);
 	}
 
 	/**
-	 * Writes the given XMCDA document to the given destination. The document
-	 * must be valid, except if this object is specifically set to not validate
+	 * Writes the given XMCDA document to the given destination. The document must
+	 * be valid, except if this object is specifically set to not validate
 	 * documents.
 	 *
-	 * @param doc
-	 *            not <code>null</code>, must conform to the XMCDA schema.
-	 * @param destination
-	 *            not <code>null</code>.
-	 * @throws IOException
-	 *             if an exception happens while opening or closing the given
-	 *             writer, or while writing to the destination.
+	 * @param doc         not <code>null</code>, must conform to the XMCDA schema.
+	 * @param destination not <code>null</code>.
+	 * @throws IOException if an exception happens while opening or closing the
+	 *                     given writer, or while writing to the destination.
 	 */
 	public void write(XMCDADoc doc, ByteSink destination) throws IOException {
 		checkNotNull(destination);
@@ -186,20 +176,17 @@ public class XMCDAWriteUtils {
 	}
 
 	/**
-	 * Writes the given XMCDA document to the given destination. The document
-	 * must be valid, except if this object is specifically set to not validate
+	 * Writes the given XMCDA document to the given destination. The document must
+	 * be valid, except if this object is specifically set to not validate
 	 * documents.
 	 *
-	 * @param doc
-	 *            not <code>null</code>, must conform to the XMCDA schema.
-	 * @param destination
-	 *            not <code>null</code>.
-	 * @param versionToWrite
-	 *            <code>null</code> for
-	 *            {@value XMCDAReadUtils#DEFAULT_XMCDA_VERSION}.
-	 * @throws IOException
-	 *             if an exception happens while opening or closing the given
-	 *             writer, or while writing to the destination.
+	 * @param doc            not <code>null</code>, must conform to the XMCDA
+	 *                       schema.
+	 * @param destination    not <code>null</code>.
+	 * @param versionToWrite <code>null</code> for
+	 *                       {@link XMCDAReadUtils#DEFAULT_XMCDA_VERSION}.
+	 * @throws IOException if an exception happens while opening or closing the
+	 *                     given writer, or while writing to the destination.
 	 * @see #setValidate(boolean)
 	 */
 	public void write(XMCDADoc doc, final ByteSink destination, String versionToWrite) throws IOException {
@@ -229,14 +216,12 @@ public class XMCDAWriteUtils {
 	 * destination. The fragment must be valid, except if this object is
 	 * specifically set to not validate documents.
 	 *
-	 * @param fragment
-	 *            not <code>null</code>, must conform to the relevant schema,
-	 *            must be allowed as a direct child of the XMCDA tag.
-	 * @param destination
-	 *            not <code>null</code>.
-	 * @throws IOException
-	 *             if an exception happens while opening or closing the given
-	 *             writer, or while writing to the destination.
+	 * @param fragment    not <code>null</code>, must conform to the relevant
+	 *                    schema, must be allowed as a direct child of the XMCDA
+	 *                    tag.
+	 * @param destination not <code>null</code>.
+	 * @throws IOException if an exception happens while opening or closing the
+	 *                     given writer, or while writing to the destination.
 	 */
 	public void write(XmlObject fragment, ByteSink destination) throws IOException {
 		final XMCDADoc doc = getDoc(fragment);

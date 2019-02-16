@@ -53,32 +53,28 @@ public class XMCDAReadUtils extends XMCDAErrorsManagerForwarder {
 
 	/**
 	 * <p>
-	 * Blindly transforms an XMCDA document corresponding to any version to a
-	 * new XMCDA document corresponding to a different version. This method only
-	 * changes the namespace associated with the document and performs no
-	 * validation whatsoever, except that the source document must have a
-	 * namespace which has the appropriate prefix for an XMCDA document. The
-	 * resulting document is therefore not necessarily a valid XMCDA document.
+	 * Blindly transforms an XMCDA document corresponding to any version to a new
+	 * XMCDA document corresponding to a different version. This method only changes
+	 * the namespace associated with the document and performs no validation
+	 * whatsoever, except that the source document must have a namespace which has
+	 * the appropriate prefix for an XMCDA document. The resulting document is
+	 * therefore not necessarily a valid XMCDA document.
 	 * </p>
 	 * <p>
-	 * This method may typically be useful in two situations: transforming an
-	 * old version of an XMCDA document into the version supported by this
-	 * library (see {@link #DEFAULT_XMCDA_VERSION}) in order to be able to read
-	 * data using the reader classes this library proposes; or transforming a
-	 * version of an XMCDA document obtained by writer classes in this library
-	 * into an older version possibly expected by some user.
+	 * This method may typically be useful in two situations: transforming an old
+	 * version of an XMCDA document into the version supported by this library (see
+	 * {@link #DEFAULT_XMCDA_VERSION}) in order to be able to read data using the
+	 * reader classes this library proposes; or transforming a version of an XMCDA
+	 * document obtained by writer classes in this library into an older version
+	 * possibly expected by some user.
 	 * </p>
 	 *
-	 * @param source
-	 *            not <code>null</code>, must contain an XMCDA document.
-	 * @param version
-	 *            not <code>null</code>, e.g. "2.0.0" or
-	 *            {@value #DEFAULT_XMCDA_VERSION}.
+	 * @param source  not <code>null</code>, must contain an XMCDA document.
+	 * @param version not <code>null</code>, e.g. "2.0.0" or
+	 *                {@link #DEFAULT_XMCDA_VERSION}.
 	 * @return not <code>null</code>.
-	 * @throws IOException
-	 *             if an IO error occurs.
-	 * @throws XmlException
-	 *             if a parse error occurs.
+	 * @throws IOException  if an IO error occurs.
+	 * @throws XmlException if a parse error occurs.
 	 */
 	static public ByteSource getAsVersion(ByteSource source, String version) throws IOException, XmlException {
 		checkNotNull(source);
@@ -155,11 +151,10 @@ public class XMCDAReadUtils extends XMCDAErrorsManagerForwarder {
 	}
 
 	/**
-	 * Creates a new object delegating error management to the given error
-	 * manager in case of unexpected data read.
+	 * Creates a new object delegating error management to the given error manager
+	 * in case of unexpected data read.
 	 *
-	 * @param errorsManager
-	 *            not <code>null</code>.
+	 * @param errorsManager not <code>null</code>.
 	 */
 	public XMCDAReadUtils(XMCDAErrorsManager errorsManager) {
 		super(errorsManager);
@@ -167,13 +162,12 @@ public class XMCDAReadUtils extends XMCDAErrorsManagerForwarder {
 	}
 
 	/**
-	 * Retrieves the version number of the last XMCDA document read by this
-	 * object, as assessed by its namespace. This does not necessarily
-	 * correspond to an effective version number as the document could contain
-	 * an exotic namespace.
+	 * Retrieves the version number of the last XMCDA document read by this object,
+	 * as assessed by its namespace. This does not necessarily correspond to an
+	 * effective version number as the document could contain an exotic namespace.
 	 *
-	 * @return <code>null</code> iff no document has been read or the version
-	 *         number could not be retrieved.
+	 * @return <code>null</code> iff no document has been read or the version number
+	 *         could not be retrieved.
 	 */
 	public String getLastVersionRead() {
 		return m_lastVersionRead;
@@ -181,25 +175,22 @@ public class XMCDAReadUtils extends XMCDAErrorsManagerForwarder {
 
 	/**
 	 * <p>
-	 * Retrieves the XMCDA document representing the requested sample. Ensures
-	 * that it validates.
+	 * Retrieves the XMCDA document representing the requested sample. Ensures that
+	 * it validates.
 	 * </p>
 	 * <p>
 	 * The sample is searched for by requesting the given name prepended with
-	 * {@value #SAMPLES_PACKAGE}. This requires that the sample files are
-	 * reachable by the class loader for this class.
+	 * {@value #SAMPLES_PACKAGE}. This requires that the sample files are reachable
+	 * by the class loader for this class.
 	 * </p>
 	 *
-	 * @param name
-	 *            not <code>null</code>.
+	 * @param name not <code>null</code>.
 	 * @return not <code>null</code>.
-	 * @throws IOException
-	 *             if an exception happens while opening or closing the given
-	 *             reader, or while parsing the source.
-	 * @throws XmlException
-	 *             if an exception related to the contents of the source happens
-	 *             while parsing the source, including if the source document
-	 *             does not validate.
+	 * @throws IOException  if an exception happens while opening or closing the
+	 *                      given reader, or while parsing the source.
+	 * @throws XmlException if an exception related to the contents of the source
+	 *                      happens while parsing the source, including if the
+	 *                      source document does not validate.
 	 */
 	public XMCDADoc getSample(String name) throws IOException, XmlException {
 		checkNotNull(name);
@@ -219,12 +210,11 @@ public class XMCDAReadUtils extends XMCDAErrorsManagerForwarder {
 	 * </p>
 	 * <p>
 	 * The sample is searched for by requesting the given name prepended with
-	 * {@value #SAMPLES_PACKAGE}. This requires that the sample files are
-	 * reachable by the class loader for this class.
+	 * {@value #SAMPLES_PACKAGE}. This requires that the sample files are reachable
+	 * by the class loader for this class.
 	 * </p>
 	 *
-	 * @param name
-	 *            not <code>null</code>.
+	 * @param name not <code>null</code>.
 	 * @return not <code>null</code>.
 	 */
 	public ByteSource getSampleAsInputSupplier(String name) {
@@ -240,31 +230,28 @@ public class XMCDAReadUtils extends XMCDAErrorsManagerForwarder {
 
 	/**
 	 * <p>
-	 * Retrieves the only element from the given collection of elements. This
-	 * method expects the collection of elements to contain exactly one element.
+	 * Retrieves the only element from the given collection of elements. This method
+	 * expects the collection of elements to contain exactly one element.
 	 * </p>
 	 * <p>
 	 * In case of unexpected contents, this method returns <code>null</code> or
 	 * throws an exception depending on the strategy this object follows.
 	 * </p>
 	 *
-	 * @param <T>
-	 *            the type of content of the collection.
-	 * @param collection
-	 *            not <code>null</code>.
-	 * @param contextMessageIfEmpty
-	 *            if not <code>null</code>, is used to give a more useful error
-	 *            message about the context when the given collection is empty.
-	 *            If parsing an {@link XmlObject}, one possibility is to use the
-	 *            qualified name of the parsed type, see e.g.
-	 *            {@link XPerformanceTable#type} and
-	 *            {@link SchemaType#getName()}.
-	 * @return <code>null</code> iff the collection contains more or less than
-	 *         one element and this object follows a permissive strategy.
-	 * @throws InvalidInputException
-	 *             iff the collection contains more or less than one element and
-	 *             this object follows the {@link ErrorManagement#THROW}
-	 *             strategy.
+	 * @param                       <T> the type of content of the collection.
+	 * @param collection            not <code>null</code>.
+	 * @param contextMessageIfEmpty if not <code>null</code>, is used to give a more
+	 *                              useful error message about the context when the
+	 *                              given collection is empty. If parsing an
+	 *                              {@link XmlObject}, one possibility is to use the
+	 *                              qualified name of the parsed type, see e.g.
+	 *                              {@link XPerformanceTable#type} and
+	 *                              {@link SchemaType#getName()}.
+	 * @return <code>null</code> iff the collection contains more or less than one
+	 *         element and this object follows a permissive strategy.
+	 * @throws InvalidInputException iff the collection contains more or less than
+	 *                               one element and this object follows the
+	 *                               {@link ErrorManagement#THROW} strategy.
 	 */
 	public <T extends XmlTokenSource> T getUnique(Collection<T> collection, String contextMessageIfEmpty)
 			throws InvalidInputException {
@@ -279,22 +266,19 @@ public class XMCDAReadUtils extends XMCDAErrorsManagerForwarder {
 	 * element.
 	 * </p>
 	 * <p>
-	 * If the given collection contains more than one element, this method
-	 * returns <code>null</code> or throws an exception depending on the
-	 * strategy this object follows.
+	 * If the given collection contains more than one element, this method returns
+	 * <code>null</code> or throws an exception depending on the strategy this
+	 * object follows.
 	 * </p>
 	 *
-	 * @param <T>
-	 *            the type of content of the collection.
-	 * @param collection
-	 *            not <code>null</code>.
-	 * @return <code>null</code> if the collection contains zero elements, or if
-	 *         the given collection contains more than one element and this
-	 *         object follows a permissive strategy.
-	 * @throws InvalidInputException
-	 *             iff the given collection contains more than one element and
-	 *             this object follows the {@link ErrorManagement#THROW}
-	 *             strategy.
+	 * @param            <T> the type of content of the collection.
+	 * @param collection not <code>null</code>.
+	 * @return <code>null</code> if the collection contains zero elements, or if the
+	 *         given collection contains more than one element and this object
+	 *         follows a permissive strategy.
+	 * @throws InvalidInputException iff the given collection contains more than one
+	 *                               element and this object follows the
+	 *                               {@link ErrorManagement#THROW} strategy.
 	 */
 	public <T> T getUniqueOrZero(Collection<T> collection) throws InvalidInputException {
 		return getUnique(collection, true, null);
@@ -315,16 +299,13 @@ public class XMCDAReadUtils extends XMCDAErrorsManagerForwarder {
 	 * The underlying reader is closed when this method returns.
 	 * </p>
 	 *
-	 * @param source
-	 *            not <code>null</code>, with a non <code>null</code> reader.
+	 * @param source not <code>null</code>, with a non <code>null</code> reader.
 	 * @return not <code>null</code>.
-	 * @throws IOException
-	 *             if an exception happens while opening or closing the given
-	 *             reader, or while parsing the source.
-	 * @throws XmlException
-	 *             if an exception related to the contents of the source happens
-	 *             while parsing the source, including if the source document
-	 *             does not validate.
+	 * @throws IOException  if an exception happens while opening or closing the
+	 *                      given reader, or while parsing the source.
+	 * @throws XmlException if an exception related to the contents of the source
+	 *                      happens while parsing the source, including if the
+	 *                      source document does not validate.
 	 * @see #getLastVersionRead
 	 */
 	public XMCDA getXMCDA(ByteSource source) throws IOException, XmlException {
@@ -346,16 +327,13 @@ public class XMCDAReadUtils extends XMCDAErrorsManagerForwarder {
 	 * The underlying reader is closed when this method returns.
 	 * </p>
 	 *
-	 * @param source
-	 *            not <code>null</code>, with a non <code>null</code> reader.
+	 * @param source not <code>null</code>, with a non <code>null</code> reader.
 	 * @return not <code>null</code>.
-	 * @throws IOException
-	 *             if an exception happens while opening or closing the given
-	 *             reader, or while parsing the source.
-	 * @throws XmlException
-	 *             if an exception related to the contents of the source happens
-	 *             while parsing the source, including if the source document
-	 *             does not validate.
+	 * @throws IOException  if an exception happens while opening or closing the
+	 *                      given reader, or while parsing the source.
+	 * @throws XmlException if an exception related to the contents of the source
+	 *                      happens while parsing the source, including if the
+	 *                      source document does not validate.
 	 * @see #getLastVersionRead
 	 */
 	public XMCDADoc getXMCDADoc(ByteSource source) throws IOException, XmlException {
@@ -387,32 +365,29 @@ public class XMCDAReadUtils extends XMCDAErrorsManagerForwarder {
 	 * Retrieves the only element from the given collection of elements, or
 	 * <code>null</code> if the collection is empty. This method expects the
 	 * collection of elements to contain zero or one elements, thus maximum one
-	 * element, if zero is accepted; otherwise it expects the given collection
-	 * to contain exactly one element.
+	 * element, if zero is accepted; otherwise it expects the given collection to
+	 * contain exactly one element.
 	 * </p>
 	 * <p>
 	 * In case of unexpected contents, this method returns <code>null</code> or
 	 * throws an exception depending on the strategy this object follows.
 	 * </p>
 	 *
-	 * @param <T>
-	 *            the type of content of the collection.
-	 * @param collection
-	 *            not <code>null</code>.
-	 * @param acceptZero
-	 *            <code>true</code> to accept an empty collection as a non
-	 *            erroneous case.
-	 * @param contextMessageIfZero
-	 *            may be <code>null</code>. If zero is not allowed, this will be
-	 *            used to give a more useful error message about the context
-	 *            where the empty collection was found.
-	 * @return <code>null</code> if the collection contains zero elements and
-	 *         this is an acceptable situation according to the relevant
-	 *         parameter, or in case of unexpected contents if this object
-	 *         follows a permissive strategy.
-	 * @throws InvalidInputException
-	 *             if unexpected data is read and this object follows the
-	 *             {@link ErrorManagement#THROW} strategy.
+	 * @param                      <T> the type of content of the collection.
+	 * @param collection           not <code>null</code>.
+	 * @param acceptZero           <code>true</code> to accept an empty collection
+	 *                             as a non erroneous case.
+	 * @param contextMessageIfZero may be <code>null</code>. If zero is not allowed,
+	 *                             this will be used to give a more useful error
+	 *                             message about the context where the empty
+	 *                             collection was found.
+	 * @return <code>null</code> if the collection contains zero elements and this
+	 *         is an acceptable situation according to the relevant parameter, or in
+	 *         case of unexpected contents if this object follows a permissive
+	 *         strategy.
+	 * @throws InvalidInputException if unexpected data is read and this object
+	 *                               follows the {@link ErrorManagement#THROW}
+	 *                               strategy.
 	 */
 	private <T> T getUnique(Collection<T> collection, boolean acceptZero, final String contextMessageIfZero)
 			throws InvalidInputException {
