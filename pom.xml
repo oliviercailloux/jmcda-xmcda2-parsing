@@ -8,7 +8,7 @@
 		<version>0.6.0</version>
 	</parent>
 	<artifactId>xmcda2-parsing</artifactId>
-	<version>0.5.4</version>
+	<version>0.5.5-SNAPSHOT</version>
 	<name>Decision Deck XMCDA v2 Parsing and serializing</name>
 
 	<build>
